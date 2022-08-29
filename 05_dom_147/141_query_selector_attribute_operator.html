@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <title>Query Selector Attribute</title>
+</head>
+<body>
+    <ul>
+        <div class="amardian">Amardian</div>
+        <div class="amardiand">D</div>
+        <div class="amardianachmad">Achmad</div>
+    </ul>
+    <script>
+        // css selector 
+        const list = document.querySelectorAll("div[class^=amardian]");
+        console.info(list);
+    </script>
+</body>
+</html>

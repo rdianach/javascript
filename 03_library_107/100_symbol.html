@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+        {
+        // symbol, object akan selalu uniqe
+        const firstName = Symbol();
+        const lastName = Symbol();
+
+        const person = {};
+        person[firstName] = "Amardian";
+        person[lastName] = "Achmad";
+
+        console.info(person);
+        console.info(person[firstName]);
+        console.info(person[lastName]);
+        }
+
+        // symbol for 
+        const person = {};
+        person[Symbol.for("firstName")] = "Amardian";
+        person[Symbol.for("lastName")] = "Achmad";
+
+        console.info(person);
+        console.info(person[Symbol.for("firstName")]);
+        console.info(person[Symbol.for("lastName")]);
+    </script>
+</body>
+</html>

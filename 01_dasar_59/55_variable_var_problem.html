@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var Problem</title>
+</head>
+<body>
+    <script>
+        // dengan let
+        let i = 20; // global scope
+
+        for(let i = 0; i < 10; i++){ // let i local scope, variable baru dengan scope nya
+            console.log(`Local : ${i}`);
+        }
+
+        console.info(`Global : ${i}`);
+
+        // dengan var
+        var j = 20; // global scope
+
+        for(var j = 0; j < 10; j++){ // var j merubah/override global variable
+            console.log(`Local : ${j}`);
+        }
+
+        console.info(`Global : ${j}`); // global menjadi 10
+    </script>
+</body>
+</html>

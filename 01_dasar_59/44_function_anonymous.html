@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Function</title>
+</head>
+<body>
+    <script>
+        // anom func di variable
+        let say = function(name){ // tanpa nama function
+            document.writeln(`<p>Hello ${name}</p>`);
+        }
+
+        say("Amardian");
+        say("Achmad");
+
+        // anom func di parameter
+        function giveMeName(callback){
+            callback("Amardian");
+        }
+        
+        giveMeName(say); // sama
+        giveMeName(function(name){
+            document.writeln(`<p>Hi ${name}</p>`);
+        });
+
+
+
+
+    </script>
+</body>
+</html>

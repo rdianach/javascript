@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await 2</title>
+</head>
+<body>
+    <script>
+        // async await - lebih mudah dibaca dan simple
+        // Promise<JSON Product>
+        function getProduct(){
+            const request = new Request("api/products.json", {
+                method: "GET"
+            });
+
+            const response = fetch(request);
+
+            return response.then((response) => response.json());
+        }
+
+        // getProduct()
+        // .then((product) => console.info(product));
+
+        // Promise<String ProductName>
+        function getProductNamePromise(){
+            return new Promise(function(resolve, reject){
+                getProduct()
+                    .then((product) => resolve(product.name))
+                    .catch((error) => resolve("Product Not Found Promise"));
+            });
+        }
+
+        // async await // lebih simple
+        async function getProductNameAsync(){
+            try{
+                const product = await getProduct();
+                return product.name;
+            }catch(e){
+                return "Product Not Found Async Await";
+            }
+        }
+
+        getProductNamePromise()
+            .then((productName) => console.info(productName));
+
+        getProductNameAsync()
+            .then((productName) => console.info(productName));
+
+    </script>
+</body>
+</html>

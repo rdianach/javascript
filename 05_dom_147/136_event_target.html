@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Target</title>
+</head>
+<body>
+    <input type="button" id="clickMe" value="Click Me">
+    <script>
+        // event target
+        const button = document.getElementById("clickMe");
+
+        button.addEventListener("click", function(){ // function callback, anom function
+            button.setAttribute("value", "Sudah di klik!"); // name : value
+        });
+
+        button.addEventListener("click", function(){ // function callback, anom function
+            console.log("Button di klik"); // tambah terus jika di klik
+        });
+
+        // global event handler
+    </script>
+</body>
+</html>

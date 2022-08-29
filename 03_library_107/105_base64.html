@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64</title>
+</head>
+<body>
+    <script>
+        // binary to text encoding, representasi text
+        const original = "Amardian&D=Achmad";
+        console.info(original);
+
+        const encoded = btoa(original); // encode ke base64 dari value
+        console.info(encoded);
+
+        const decoded = atob(encoded); // decode dari base64 ke value
+        console.info(decoded);
+    </script>
+</body>
+</html>

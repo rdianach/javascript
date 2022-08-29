@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi String dan Number</title>
+</head>
+<body>
+    <script>
+        //const value1 = "1";
+        const value1 = parseInt("1");
+        const value2 = 1;
+        const sum = value1 + value2;
+
+        document.writeln(`<p>${sum}</p>`); // 11
+
+        // konversi string ke number
+        document.writeln(`<p>${parseInt("1.1")}`); // 1
+        document.writeln(`<p>${parseFloat("1.1")}`); // 1.1
+        document.writeln(`<p>${Number("1.1")}`); // 1.1 
+        
+        // konversi number ke string
+        const a = 1; 
+        const b = 1;
+
+        const total = a.toString() + b.toString(); 
+
+        document.writeln(`<p>${total}</p>`);
+
+        // NaN, not a string
+        document.writeln(`<p>${parseInt("salah")}</p>`); // NaN
+        document.writeln(`<p>${parseFloat("1.1text")}</p>`); // 1.1, ngecek depan nya doang, tolerir kesalahan di belakang
+
+        // Number() tidak akan mentolelir kesalahan pada data
+        document.writeln(`<p>${Number("1.1ups")}</p>`); // NaN
+        document.writeln(`<p>${Number("1x")}</p>`); // NaN
+        document.writeln(`<p>${Number("bukan number")}</p>`); // NaN
+
+        // operasi pada NaN, tidak tolelir kesalahan
+        const value11 = Number("salah"); // NaN 
+        const value22 = 100;
+        const sum22 = value11 + value22; 
+
+        document.writeln(`<p>${sum22}</p>`);
+
+        // isNaN()
+        document.writeln(`<p>${isNaN(sum22)}</p>`);
+        document.writeln(`<p>${isNaN(100)}</p>`);
+        document.writeln(`<p>${isNaN(NaN)}</p>`);
+
+
+    </script>
+</body>
+</html>

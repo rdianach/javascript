@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter dan Setter</title>
+</head>
+<body>
+    <script>
+        // getter, mengambil data
+        const person = {
+            firstName: "Amardian",
+            lastName: "Achmad",
+            get fullName(){ // fullname adalah property/attribute
+                return `${this.firstName} ${this.lastName}`
+            },
+            // setter, mengubah data
+            set fullName(value){
+                const array = value.split(" ");
+                this.firstName = array[0];
+                this.lastName = array[1];
+                //console.info(`Ubah Full Name ${value}`);
+            }
+        };
+
+        person.fullName = "Amardian Achmad"; // akses setter function
+        console.table(person);
+
+        person.fullName = "Amar dian"; // akses setter function
+        console.table(person);
+
+        person.fullName = "Ach mad"; // akses setter function
+        console.table(person);
+
+        // otomatis memanggil get fullName()
+        person.firstName = "D";
+        console.info(person.fullName); //akses fullname
+    </script>
+</body>
+</html>

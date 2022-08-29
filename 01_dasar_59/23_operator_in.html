@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator In</title>
+</head>
+<body>
+    <script>
+        const person = {
+            firstName: "Amardian",
+            lastName: "Achmad"
+        }
+
+        //const result = "firstName" in person; //jika true
+        //document.writeln(`<p>${result}</p>`);
+
+        if("firstName" in person){ // true
+            alert(`Hello ${person.firstName}`);
+        }
+        else {
+            alert("Hello");
+        }
+
+        const student = { 
+            firstName: "Dian",
+            middleName: undefined,
+            lastName: "Amar"
+        }
+
+        if("middleName" in student){
+            alert(`Hello ${student.middleName}`);
+        }
+        else {
+            alert("Hello Student");
+        }
+
+        const names = [null, "Amardian", null]
+        const result = 0 in names; // true, selama index tersedia, tidak mengecek value nya
+        document.writeln(`<p>${result}</p>`);
+    </script>
+</body>
+</html>

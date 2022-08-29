@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Constructor</title>
+</head>
+<body>
+    <script>
+
+        function Person(firstName, lastName){ 
+            // di instance object
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (name) {
+                console.info(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        // menambah property ke prototype, di prototype
+        Person.prototype.sayBye = function (){
+            console.info("Good Bye");
+        }
+
+        Person.prototype.run = function (){
+            console.info(`${this.firstName} is running`);
+        }
+
+        const amar = new Person("Amardian", "Achmad"); // membuat object di constructor function
+        amar.sayBye = function(){ // override prototype, pertama ketemu
+            console.info("Sampai Jumpa");
+        }
+        const achmad = new Person("Achmad", "Amardian");
+
+        console.log(amar);
+        console.log(achmad);
+
+        amar.sayBye()
+        achmad.run()
+    </script>
+</body>
+</html>

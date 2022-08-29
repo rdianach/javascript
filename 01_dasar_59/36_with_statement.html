@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>With Statement</title>
+</head>
+<body>
+    <script>
+        // tanpa with statement
+        const person = {
+            firstName: "Amardian",
+            middleName: "D",
+            lastName: "Achmad",
+        };
+
+        console.log(person.firstName);
+        console.log(person.middleName);
+        console.log(person.lastName);
+
+        with(person){ // not recomendation
+            console.log(firstName);
+            console.log(middleName);
+            console.log(lastName);
+        }
+    </script>
+</body>
+</html>

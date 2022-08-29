@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Property</title>
+</head>
+<body>
+    <ul id="menu">
+        <li id="first">First</li> // enter ada text
+        <li id="second">Second</li>
+        <li id="third">Third</li>
+    </ul>
+    <script>
+        const menu = document.getElementById("menu"); // byId
+        console.info(menu);
+        console.info(menu.childNodes); // node Property
+
+        const second = document.getElementById("second");
+        console.info(second);
+        console.info(second.textContent);
+        console.info(second.previousSibling); // node property
+        console.info(second.nextSibling);  // node property
+        console.info(second.previousSibling.previousSibling); // node property
+        console.info(second.nextSibling.nextSibling);  // node property
+    </script>
+</body>
+</html>

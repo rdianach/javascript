@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx</title>
+</head>
+<body>
+    <script>
+        // mencari text dengan pola/pattern
+
+        {   
+            // pola pencarian
+            const regex1 = /amardian/ // literal notation
+            const regex2 = new RegExp("amardian"); // string notation
+            const regex3 = new RegExp(/amardian/); // 
+        }
+
+        {
+            // test regex
+            const name = "Amardian Achmad Amardian D"
+            const regex = /D/;
+
+            const result = regex.exec(name);
+            console.info(result); 
+            console.info(regex.exec("tidak ada")); // mencari D di string tidak ada
+
+            const test = regex.test(name);
+            console.info(test);
+            console.info(regex.test("tidak ada")); // mencari D di string tidak ada
+        }
+
+        {
+            // regex modifier
+            const name = "amardian achmad\nAmardian Achmad\nD Achmad";
+            const regex1 = /^amardian/igm // global
+            const regex2 = /achmad/ig // incase sensitive, global
+
+            let result;
+
+            while((result = regex1.exec(name)) !== null){
+                console.info(result);
+            }
+            while((result = regex2.exec(name)) !== null){
+                console.info(result)
+            }
+        }
+
+            // assersions : indikasi awal dan akhir teks
+            // character classes : membedakan antara huruf dan angka
+            // group dan range : melakukan grouping atau range huruf atau angka
+            // quantifiers : menentukan jumlah huruf atau angka
+
+        {
+            // advance regex
+            const regex = /am[aiueo]/ig
+            const name = "amar amir amur amer amor";
+
+            let result;
+
+            while((result = regex.exec(name)) !== null){
+                console.info(result);
+            }
+
+            }
+
+        {
+            const name = "amar amir amur amer amor";
+            
+            console.info(name.match(/am[aiueo]/ig)); // mencari data yg sesuai regex
+            console.info(name.search(/am[aiueo]/ig)); // mencari index yg sesuai regex
+            
+            // di replace 
+            console.info(name.replace(/am[aiueo]/i, "keren")); // mengubah data dengan value yg sesuai regex
+            console.info(name.replaceAll(/am[aiueo]/ig, "keren")); // mengubah semua data dengan value yang sesuai regex  
+            console.info(name.split(/a/ig));
+        }
+    </script>
+</body>
+</html>

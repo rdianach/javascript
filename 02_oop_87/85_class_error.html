@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Error</title>
+</head>
+<body>
+    <script>
+        // create class error, sesuai kebutuhan misal db error, api error, login error
+        class ValidationError extends Error{
+            constructor(message, field){
+                super(message);
+                this.field = field;
+            }
+        }
+
+        class MathUtil{
+            static sum(...numbers){ 
+                if(numbers.length == 0){
+                    throw new ValidationError("Total Paramameter harus lebih dari 0", "numbers"); 
+                }   
+                
+                let total = 0;
+                for(const number of numbers){
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        try{
+            console.info(MathUtil.sum()); // berhenti.. stop!!, jalan sama saja
+            console.info("Amardian"); // tidak jalan
+        }
+        catch(error){ // akan di eksekusi jika terjadi error di try
+            if(error instanceof ValidationError){
+                console.error(`Terjadi error di field ${error.field} dengan error: ${error.message}`)
+            }
+            else{
+                console.info(`Terjadi error: ${error.message}`);
+            }   
+        }
+        finally{ // ada error atau tidak, akan selalu di eksekusi
+            console.info("Kode Program Selesai");
+        }
+
+        console.info("Amardian");
+    </script>
+</body>
+</html>

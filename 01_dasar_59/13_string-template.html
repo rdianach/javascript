@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Template</title>
+</head>
+<body>
+    <script>
+        const name = "Amardian Achmad";
+        const firstName = "Amardian";
+        const lastName = "Achmad";
+        const template = `Name : ${firstName} ${lastName}`;
+        const lama = "Name : " + firstName + " " + lastName + " ";
+
+        console.info(template); // cara baru
+        console.info(lama); // cara lama
+
+        // expression string template 
+        const value = 80;
+
+        const template2 = `Name : ${name}, Lulus ${value > 75}`; //boolean
+
+        console.info(template2);
+
+        // multiline string
+        let multiLineString = ` 
+        Nama saya adalah Amardian Achmad
+        Hello World
+        Belajar Javascript
+        Be Patience and keep Learning
+        `;
+
+        document.writeln("<pre>");
+        document.writeln(multiLineString);
+        document.writeln("</pre>");
+
+
+
+    </script>
+</body>
+</html>

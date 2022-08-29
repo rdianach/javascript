@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+</head>
+<body>
+    <form action="" name="todoForm">
+        <table>
+            <tbody>
+                <tr>
+                    <td><label for="todo">Todo:</label></td>
+                    <td><input type="text" name="todo" id="todo"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <h1>Todolist</h1>
+    <table>
+        <thead>
+            <th>Filter:</th>
+            <th><input type="text" name="search" id="search"></th>
+        </thead>
+        <tbody id="todolistBody">
+            <tr>
+                <td><input type="button" value="Done"></td>
+                <td>Todo Description</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // menambah todolist
+        const todolist = [
+            "Belajar Javascript Dasar",
+            "Belajar Javascript OOP",
+            "Belajar Javascript DOM"
+        ];
+
+        // menghapus array todolist
+        function clearTodolist(){
+            const todolistBody = document.getElementById("todolistBody");
+            while(todolistBody.firstChild){
+                todolistBody.removeChild(todolistBody.firstChild);
+            }
+        }
+
+        // menghapus todolist
+        function removeTodoList(index){
+            todolist.splice(index, 1); // index 0 satu record yang di hapus
+            displayTodolist();
+        }
+
+        // menambah todolist
+        function addTodolist(index, todo){
+            const tr = document.createElement("tr");
+            const tdButton = document.createElement("td");
+            tr.appendChild(tdButton);
+
+            // create button
+            const buttonDone = document.createElement("input");
+            buttonDone.type = "button";
+            buttonDone.value = "Done";
+            buttonDone.onclick = function(){
+                removeTodoList(index);
+            };
+            tdButton.appendChild(buttonDone);
+
+            const tdTodo = document.createElement("td");
+            tdTodo.textContent = todo;
+            tr.appendChild(tdTodo)
+
+            const todolistBody = document.getElementById("todolistBody");
+            todolistBody.appendChild(tr);
+        }
+
+        // menampilkan todolist
+        function displayTodolist(){
+
+            clearTodolist();
+
+            for(let i = 0; i < todolist.length; i++){
+                const todo = todolist[i];
+
+                const searchText = document.getElementById("search").value.toLowerCase();
+
+                if(todo.toLowerCase().includes(searchText)){
+                    addTodolist(i, todo);
+                }
+            }
+        }
+        
+        // menambah todolist
+        document.forms['todoForm'].onsubmit = function(event){
+            event.preventDefault();
+
+            const todo = document.forms['todoForm']['todo'].value;
+            todolist.push(todo);
+
+            document.forms['todoForm'].reset();
+
+            console.info(todolist);
+            displayTodolist();
+        };
+
+        // search todolist
+        const searchInput = document.getElementById("search");
+        
+        // searchInput.onchange = function(){
+        //     console.info("On Change");   
+        // }
+
+        searchInput.onkeyup = function(){
+            displayTodolist();
+        }
+
+        searchInput.onkeydown = function(){
+            displayTodolist();
+        }
+
+        // clear todolist dari awal
+        displayTodolist();
+
+    </script>
+</body>
+</html>

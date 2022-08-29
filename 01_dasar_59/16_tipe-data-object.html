@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipe Data Object</title>
+</head>
+<body>
+    <script>
+        const orang = {}; // object kosong, biasa nya string
+
+        // Menambah atau Mengubah
+        orang["nama"] = "Amardian Achmad";
+        orang["alamat"] = "Indonesia";
+        orang["umur"] = 35
+
+        // Menghapus
+        delete orang["alamat"];
+
+        console.table(orang);
+
+        // Memasukan Data
+        const person = {
+            // attributes
+            "nama lengkap": "Amardian Achmad",
+            alamat: "Indonesia",
+            umur: 35 
+        };
+
+        console.table(person);
+
+        // Mengakses property
+        console.info(`Nama: ${person["nama lengkap"]}`); // harus [] karena attribute pakai spasi
+        console.info(`Alamat: ${person.alamat}`); // object.property
+        console.info(`Umur: ${person.umur}`);
+
+    </script>
+</body>
+</html>

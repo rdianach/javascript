@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        {
+        // destructuring array 
+        const names = ["Amardian", "D", "Achmad", "Amar", "Dian"];
+        const [firstName, middleName, lastName, ...others] = names;
+
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+        console.info(others); // sisa nya array
+        }
+        
+        {
+        // mengambil data di object
+        const person = {
+            firstName: "Amardian",
+            lastName: "Achmad",
+            address: {
+                street: "Jalan Belum Ada",
+                city: "Jakarta",
+                country: "Indonesia",
+            },
+            hobby: "Game",
+            channel: "Kelas Konfig"
+        };
+
+        const {firstName, lastName, address:{city, street,country}, ...others} = person;
+        console.info(firstName);
+        console.info(lastName);
+        console.info(city);
+        console.info(street);
+        console.info(country);
+        console.info(others);
+        }
+
+        // destructuring di function parameter object
+        {
+            function displayPerson({firstName, middleName, lastName}){
+                console.info(firstName);
+                console.info(middleName);
+                console.info(lastName);
+            }
+
+            const person = {
+                firstName: "Amardian",
+                middleName: "D",
+                lastName: "Achmad"
+            }
+
+            displayPerson(person);
+        }
+
+        // destructuring di function parameter array
+        {
+            function sum([first, second]){
+                return first + second;
+            }
+
+            console.info(sum([10, 10]));
+            console.info(sum([20, 10]));
+        }
+
+        // default value
+        {
+            const names = ["Amardian", "Amar"];
+            const [firstName, middleName = "D", lastName = "Achmad"] = names;
+
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+        }
+
+        // default value 
+        {
+        const person = {
+            firstName: "Amardian",
+            lastName: "Achmad",
+        };
+
+        let {firstName, lastName = "D"} = person;
+        console.info(firstName);
+        console.info(lastName);
+        }
+
+        // menggunakan nama variable lain
+        {
+            const person = {
+                firstName: "Amardian",
+                middleName: "D",
+                lastName: "Achmad",
+            };
+
+            const {
+                firstName: namaDepan,
+                middleName: namaTengah = "Dream",
+                lastName: namaBelakang
+            } = person;
+
+            console.info(namaDepan);
+            console.info(namaTengah);
+            console.info(namaBelakang);
+        }
+
+    </script>
+</body>
+</html>

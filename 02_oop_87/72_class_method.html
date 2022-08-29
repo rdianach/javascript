@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Method</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name){
+                this.name = name;
+                // nempel di instance object bukan di prototype = tidak rekomendasi
+                // this.sayHello = function(name){
+                //    console.info(`Hi ${name}, my name is ${this.name}`);
+                // }
+            }
+
+            // class method, nempel ke Person.prototype = rekomendasi  
+            sayHello(name){
+                console.info(`Hi ${name}, my name is ${this.name}`);
+
+            }
+        }
+
+        const amar = new Person("Amardian");
+        console.info(amar);
+        console.info(amar.name);
+        amar.sayHello("dian");
+    </script>
+</body>
+</html>

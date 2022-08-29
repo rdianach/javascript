@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Inherintance</title>
+</head>
+<body>
+    <script>
+        function Employee(name){
+            this.name = name;
+        }
+        
+        function Manager(name){
+            this.name = name;
+        }
+
+        // prototype yang salah, seakan" me-replace manager ke employee prototype, begitu kebalikan nya
+        //Manager.prototype = Employee.prototype
+
+        // prototype yang benar
+        Manager.prototype = Object.create(Employee.prototype);
+
+        Manager.prototype.sayHello = function (name){
+            console.info(`Hello ${name}, my name is Manager ${this.name}`);
+        }
+
+        Employee.prototype.sayHello = function (name){
+            console.info(`Hello ${name}, my name is Employee ${this.name}`);
+        }
+
+        const employee = new Employee("Amardian");
+        employee.sayHello("Achmad");
+
+        const manager = new Manager("Achmad");
+        employee.sayHello("Amardian");
+
+        console.info(employee);
+        console.info(manager);
+
+    </script>
+</body>
+</html>
